@@ -5,4 +5,50 @@ var3=`echo "scale=4; $var1 / $var2" | bc`
 echo The answer for this is $var3
 
 
-#|管道
+
+#例1  scale为位数
+#var3=`echo "scale=4; $var1 / $var2" | bc`
+#echo $var3
+#输出
+#.6666
+
+#错1
+#var3 = $var1 / $var2
+#输出
+#./demo.sh: 行 8: var3: 未找到命令
+#var3和等于号之间不能有空格
+#2/3
+
+
+#错2同错1
+#var3 =`echo "scale=4; $var1 / $var2" | bc`
+#输出
+#./demo.sh: 行 11: var3: 未找到命令  
+#var3和等于号之间不能有空格
+
+
+
+#错3
+#var4=echo "$var1/$var2"
+#输出
+#./demo.sh: 行 27: 2/3: 没有那个文件或目录
+#没有出结果,shell运算必须借助其他工具
+
+
+
+#错4
+#var5=`echo " $var1 / $var2"| bc`
+#echo $var5
+#输出0
+
+#var6=`echo "$var1 / $var2"| bc`
+#echo $var6
+#输出0
+
+#有无空格都一样,没有scale参数为0
+
+#例2
+#var7=`echo "scale=6; $var1 / $var2"|bc`
+#echo $var7
+#|管道符号前后参数无论有多少个空格都一样
+#grep文本搜索
