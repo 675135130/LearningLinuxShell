@@ -7,26 +7,25 @@ version="kinectic"
 #***脚本要在sudo下
 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-echo "                      导入源sucess"
-&&
+echo "                      导入源sucess" && echo "    import key"
+
 #翻牆有可能識別不了下載失敗
 sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 echo "                   ******key Update done then apt update"
-sudo apt-get update
+sudo apt-get update && echo "                   *****update更新ubuntu"
 
 #-f会出错
-&&
-echo "                   *****update更新ubuntu"
+
 sudo apt-get -y install ros-${version}-desktop-full
 sudo apt-get -f
-echo "done"
-&&
-echo "                  ****初始化更新"
+echo "done"	&&	echo "                  ****初始化更新"
+
+
 sudo rosdep init
 rosdep update
-echo "			****初始化更新done"
-&&
-echo "			***source"
+echo "			****初始化更新done"&& echo "			***source"
+
+
 echo "source /opt/ros/${version}/setup.bash" >> ~/.bashrc
 echo "			************done"
 
@@ -40,11 +39,10 @@ source /opt/ros/${version}/setup.bash
 
 #-y自&&动确认
 echo "			****sudo apt-get install python-rosinstall"
-sudo apt-get -y install python-rosinstall
+sudo apt-get -y install python-rosinstall && source ~/.bashrc
 
 
-&&
-source ~/.bashrc
+
 
 echo "			****export | grep ROS"
 export | grep ROS
