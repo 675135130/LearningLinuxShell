@@ -14,8 +14,8 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key 421C365BD9
 echo "                   ******key Update done then apt update"
 sudo apt-get update && echo "                   *****update更新ubuntu"
 
-#-f会出错sudo apt-get -f
-
+#-f会出错 20 sudo apt-get -f 19version定义在头部未起作用
+version="kinectic"
 sudo apt-get -y install ros-${version}-desktop-full
 
 echo "done"	&&	echo "                  ****初始化更新"
