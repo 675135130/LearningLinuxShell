@@ -10,14 +10,14 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 echo "                      导入源sucess" && echo "    import key"
 
 #翻牆有可能識別不了下載失敗
-sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 echo "                   ******key Update done then apt update"
 sudo apt-get update && echo "                   *****update更新ubuntu"
 
-#-f会出错
+#-f会出错sudo apt-get -f
 
 sudo apt-get -y install ros-${version}-desktop-full
-sudo apt-get -f
+
 echo "done"	&&	echo "                  ****初始化更新"
 
 
