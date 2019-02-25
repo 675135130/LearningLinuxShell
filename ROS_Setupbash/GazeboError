@@ -1,0 +1,2 @@
+export SVGA_VGPU10=0
+echo "export SVGA_VGPU10=0" >> ~/.bashrc
