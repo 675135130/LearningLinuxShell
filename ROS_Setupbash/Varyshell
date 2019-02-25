@@ -13,7 +13,7 @@ echo "                      导入源sucess" && echo "    import key"
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 echo "                   ******key Update done then apt update"
 sudo apt-get update && echo "                   *****update更新ubuntu"
-
+sudo rm /var/cache/apt/archives/lock&&sudo rm /var/lib/dpkg/lock
 #-f会出错 
 version="kinetic"
 sudo apt-get -y install ros-${version}-desktop-full
