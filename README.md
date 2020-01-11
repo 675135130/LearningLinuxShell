@@ -11,3 +11,9 @@
 
 
 \续航
+
+
+NewVMTip
+Don't forget how to new VM
+
+【1】Setup vmtools 【2】Timeshift 【3】Shell
